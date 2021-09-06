@@ -1,13 +1,13 @@
 const express = require('express');
 const todosController = require('../controllers/todos');
-// const isAuth = require('../middleware/isAuth');
+const isAuth = require('../middleware/is-authenticated');
 
 const router = express.Router();
 
 router.get('/', todosController.getTodos);
 router.get('/:todoId', todosController.getTodosById);
-router.post('/', todosController.createTodo);
-router.put('/:todoId', todosController.updateTodo);
-router.delete('/:todoId', todosController.deleteTodo);
+router.post('/', isAuth, todosController.createTodo);
+router.put('/:todoId', isAuth, todosController.updateTodo);
+router.delete('/:todoId', isAuth, todosController.deleteTodo);
 
 module.exports = router;
