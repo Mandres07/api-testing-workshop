@@ -88,7 +88,7 @@ exports.deleteTodo = (req, res, next) => {
       return res.status(404).send();
    }
    todos.splice(todoIndex, 1);
-   return res.status(410).json({
+   return res.status(204).json({
       message: 'Todo removed successfully'
    });
 };
