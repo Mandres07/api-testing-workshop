@@ -5,7 +5,7 @@ exports.getTodos = (req, res, next) => {
 };
 
 exports.getTodosById = (req, res, next) => {
-   const todoId = req.params.todoId;
+   const todoId = parseInt(req.params.todoId);
    if (!todoId || typeof todoId !== 'number') {
       return res.status(400).send();
    }
