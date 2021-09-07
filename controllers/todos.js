@@ -6,7 +6,7 @@ exports.getTodos = (req, res, next) => {
 
 exports.getTodosById = (req, res, next) => {
    const todoId = req.params.todoId;
-   if (!todoId) {
+   if (!todoId || typeof todoId !== 'number') {
       return res.status(400).send();
    }
    const todo = todos.find(item => item.id.toString() === todoId.toString());
