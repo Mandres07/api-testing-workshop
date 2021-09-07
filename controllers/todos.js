@@ -32,7 +32,8 @@ const validateBody = (userId, title, completed) => {
 
 exports.createTodo = (req, res, next) => {
    const { userId, title, completed } = req.body;
-   if (!userId || !title || !completed) {
+   if (!userId || !title) {
+      console.log(req.body);
       return res.status(400).send();
    }
    const error = validateBody(userId, title, completed);
